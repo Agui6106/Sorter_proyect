@@ -22,7 +22,7 @@ int main(){
 
     //Abrimos el archivo y verificamos que se haya abierto correctamante
     inputfile.open("plantas.txt");
-    if (!inputfile.is_open()) cout << "No se encontro el arcihvo";
+    if (!inputfile.is_open()){cout << "No se encontro el arcihvo"; return 0;} 
     else cout << "Datos cargados correctamante\n";
 
     // Definimos variables y estructrua de datos
@@ -45,6 +45,10 @@ int main(){
 
     // -- CREAMOS EL MENU -- //
     int option = 0;
+
+    cout << "Selecciona una opcion: \n";
+    cout << "1. Imprimir los datos\n2. Buscar algun dato\n3. Agregar elementos \n" ;
+    cout << "4. Ordenar la base de datos\n5. Borrar algun dato\n6. Salir \n" ;
 
     while (option != 6){
         cout << endl << "Opcion: "; cin >> option;
