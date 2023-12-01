@@ -31,13 +31,13 @@ Dentro de nuestro código principal (main), la complejidad es de O(n^3) debido a
 
 ## SICT0303B: Implementa acciones científicas
 ### Implementa mecanismos para consultar información de las estructras correctos
-XD
+Se incluyen fucniones para que el ususario pueda elimianr o buscar algun elemento de la lista con el index de este o con el nombre del mismo dato.
 
 ### Implementa mecanismos de lectura de archivos para cargar datos a las estructuras de manera correcta
-XD
+Los datos estan guardados en un archivo txt que contiene datos por default a lso cuales accesamos al principio del codigo y valdiamso que se hayan leido correctamante los datos, de los contrario no es posible continuar. 
 
 ### Implementa mecanismos de escritura de archivos para guardar los datos de las estructuras de manera correcta
-XD
+En las opciones que el usuario pueda guardar en un archvio txt la estrcuutra de los datos con todas las operaciones que el suaurio haya realizado con el nombre "output.txt"
 
 
 
