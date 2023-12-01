@@ -17,11 +17,12 @@ using namespace std;
 
 int main(){
     // -- LEEMOS EL ARCHIVO.TXT -- //
-    ifstream inputfile;
+    ifstream inputfile("plantas.txt") ;
+    // Escribimos archivo
+    ofstream outputFile("output.txt");
     string linea;
 
     //Abrimos el archivo y verificamos que se haya abierto correctamante
-    inputfile.open("plantas.txt");
     if (!inputfile.is_open()){cout << "No se encontro el arcihvo"; return 0;} 
     else cout << "Datos cargados correctamante\n";
 
@@ -35,10 +36,17 @@ int main(){
     string new_plant;
     int cantidad;
 
+    // Creamos nuetsra estrucutra de datos
     List<string> data;
 
     //Leemos todsa las lineas del arcihvo y las agregamos a la estructura
-    while (getline(inputfile, linea)) data.Insert(linea);
+    while (std::getline(inputfile, linea)) {
+        // Pasamos por referecnia los caractares
+        for (char &c : linea) { // Busca hasta encontrar el "limite" de la liena
+            c = std::tolower(c);
+        }
+        data.Insert(linea);
+    }
     
     //Cerramos el archivo
     inputfile.close();
@@ -48,13 +56,13 @@ int main(){
 
     cout << "Selecciona una opcion: \n";
     cout << "1. Imprimir los datos\n2. Buscar algun dato\n3. Agregar elementos \n" ;
-    cout << "4. Ordenar la base de datos\n5. Borrar algun dato\n6. Salir \n" ;
+    cout << "4. Ordenar la base de datos\n5. Borrar algun dato\n6. Guardar la nueva lista\n" ;
+    cout << "7. Guardar una nueva data base" ;
 
-    while (option != 6){
+    while (option != 7){
         cout << endl << "Opcion: "; cin >> option;
         // Opciones
         switch (option) {
-
             // Imprimos los datos
             case 1:
                 cout << "ID, Nombre \n";
@@ -84,7 +92,7 @@ int main(){
             
             // Insertamos x elementos
             case 3:
-                cout << "Plantas a agregar: "; cin >> cantidad;
+                cout << "Cuantas plantas deseas agregar: "; cin >> cantidad;
                 for (int i = 0; i < cantidad; i++) {
                     cout << "Nombre de la planta: "; cin >> new_plant;
                     data.Insert(new_plant);
@@ -95,6 +103,7 @@ int main(){
             case 4:
                 data.SortByName();
                 cout << "Datoas ordenados correctamante \n";
+                cout << "Deseas Guardar la lista ordenada?";
 
                 break;
             
@@ -136,12 +145,29 @@ int main(){
                 } else cout << "No ingresaste una opcion valida \n";
                 
                 break;
-    
-           // Bye :D
+
+            // Escribimnos un nuevo archivo
             case 6:
+                cout << "Guarando datos...\n...\n...\n" << endl;
+
+                // -- SOBREESCRIBIMOS EL ARCHVIO -- //
+                cout << "Generando archivo..." << endl;
+                // Imprimir el invernadero
+                outputFile << data.toString();
+                // Cerrar el archivo después de escribir
+                outputFile.close();
+
+                // Limpiar la lista
+                data.clear();
+                cout << "Finalizando..." << endl;
+                
+                break;
+
+           // Bye :D
+            case 7:
                 cout << "Adios :D" << endl;
                 cout << "Limpiando memoria para que no se reinicie tu compu en clase :3" << endl;
-                cout << "... \n... \n... \nListo Disfruta tu dia ;D" << endl;
+                cout << "....\n....\n....\nListo Disfruta tu dia ;D" << endl;
                 data.~List();
                 break;
 
