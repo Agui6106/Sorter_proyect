@@ -12,7 +12,6 @@
 #include <sstream>
 #include <string>
 
-
 /*
     Estructura a utilizar Linked List
 */
@@ -36,11 +35,9 @@ private:
 	friend class List<T>; // Lista entra a todo lo privado de LINK
 };
 
-
 // Construcotr por omision //
 template <class T>     
 Link<T>::Link(T val) : value(val), next(0) {}
-
 
 // -- CLASE PRINCIPAL LISTA -- //
 template <class T>
@@ -81,6 +78,8 @@ class List {
         int get_size() const;
         // Contiene?
         bool contains(T) const;
+        // Regresamso string
+
         
 };
 
