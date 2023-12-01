@@ -27,10 +27,9 @@ Considerando que n es nuestro índice, tenemos que:
 Como podemos ver, todos nuestros métodos tienen complejidad O(n).
 
 ### Hace un análisis de complejidad correcto y completo para todos los demás componentes del programa y determina la complejidad final del programa.
-Dentro de neustro codigo pricnipal 
+Dentro de nuestro código principal (main), la complejidad es de O(n^3) debido a que incluye un bucle while, dentro del cual está anidado mi Selection Sort
 
 ## SICT0303B: Implementa acciones científicas
-
 ### Implementa mecanismos para consultar información de las estructras correctos
 XD
 
